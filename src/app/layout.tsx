@@ -4,18 +4,20 @@ import "./globals.css";
 import { ResponseLogger } from "@/components/response-logger";
 import { cookies } from "next/headers";
 
-// Montserrat for Geist Sans equivalent
+// Montserrat replaces Geist Sans
 const geistSans = Montserrat({
   subsets: ["latin"],
   variable: "--font-geist-sans",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-// Fira Code for Geist Mono equivalent
+// Fira Code replaces Geist Mono
 const geistMono = Fira_Code({
   subsets: ["latin"],
   variable: "--font-geist-mono",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -44,22 +46,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   const requestId = cookies().get("x-request-id")?.value;
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         {requestId && <meta name="x-request-id" content={requestId} />}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-elegant-sans`}
+        className="antialiased font-elegant-sans"
         style={{
           background: "#0B0F2A",
           color: "#FFFFFF",
-          fontFamily: "Montserrat, Inter, sans-serif",
+          fontFamily: "var(--font-geist-sans), Montserrat, Inter, sans-serif",
         }}
       >
         {children}
