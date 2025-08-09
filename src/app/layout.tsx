@@ -1,46 +1,50 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Montserrat, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { ResponseLogger } from "@/components/response-logger";
 import { cookies } from "next/headers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+// Montserrat for Geist Sans equivalent
+const geistSans = Montserrat({
+  subsets: ["latin"],
   variable: "--font-geist-sans",
-  weight: "100 900",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+
+// Fira Code for Geist Mono equivalent
+const geistMono = Fira_Code({
+  subsets: ["latin"],
   variable: "--font-geist-mono",
-  weight: "100 900",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "DataClean Pro • Midnight Edition",
-  description: "Professional data cleaning and quality assurance platform designed for enterprise excellence. Transform datasets with sophisticated analytics and refined precision.",
+  description:
+    "Professional data cleaning and quality assurance platform designed for enterprise excellence. Transform datasets with sophisticated analytics and refined precision.",
   other: {
     "fc:frame": JSON.stringify({
       version: "next",
-      imageUrl: "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_62c5da61-f4fa-4705-9a2b-6580a7193d06-Ladw0WRhCAnGLY0erFFnBpIP36Uf4x",
+      imageUrl:
+        "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_62c5da61-f4fa-4705-9a2b-6580a7193d06-Ladw0WRhCAnGLY0erFFnBpIP36Uf4x",
       button: {
         title: "Open with Ohara",
         action: {
           type: "launch_frame",
           name: "DataClean Pro • Midnight Edition",
           url: "https://automobile-high-536.preview.series.engineering",
-          splashImageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/9756b3248bdd48d596519e7d98958e9df5588654dadf0bb17a71fc435bcb37b3?placeholderIfAbsent=true&apiKey=ad3941e5ec034c87bd50708c966e7b84",
-          splashBackgroundColor: "#0B0F2A"
-        }
-      }
-    })
-  }
+          splashImageUrl:
+            "https://cdn.builder.io/api/v1/image/assets/TEMP/9756b3248bdd48d596519e7d98958e9df5588654dadf0bb17a71fc435bcb37b3?placeholderIfAbsent=true&apiKey=ad3941e5ec034c87bd50708c966e7b84",
+          splashBackgroundColor: "#0B0F2A",
+        },
+      },
+    }),
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   const requestId = cookies().get("x-request-id")?.value;
 
   return (
@@ -53,9 +57,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-elegant-sans`}
         style={{
-          background: '#0B0F2A',
-          color: '#FFFFFF',
-          fontFamily: 'Montserrat, Inter, sans-serif'
+          background: "#0B0F2A",
+          color: "#FFFFFF",
+          fontFamily: "Montserrat, Inter, sans-serif",
         }}
       >
         {children}
