@@ -1,0 +1,835 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Nunito:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   SPACE EXPLORER THEME
+   Calm, Expansive, Inspiring - Data Discovery
+======================================== */
+
+:root {
+  /* Space Explorer Color Palette */
+  --space-blue-deep: #0A0D2E;
+  --space-blue-dark: #0E1235;
+  --space-blue-medium: #12173D;
+  --space-blue-light: #161C45;
+  --space-blue-surface: #1A214D;
+  
+  /* Starry & Nebula Colors */
+  --starry-white: #E0E6F8;
+  --starry-white-bright: #F0F4FF;
+  --starry-white-dim: #D0D8F0;
+  --nebula-purple: #7B61FF;
+  --nebula-purple-light: #9B7FFF;
+  --nebula-purple-dark: #6B51E6;
+  --nebula-purple-soft: #8B71FF;
+  
+  /* Cosmic Accent Colors */
+  --cosmic-silver: #B8C5E8;
+  --cosmic-platinum: #CDD6F0;
+  --cosmic-pearl: #E8EDF8;
+  --cosmic-azure: #6B9FFF;
+  --cosmic-violet: #A78BFF;
+  --cosmic-teal: #5BC0DE;
+  
+  /* Text Colors */
+  --text-primary: #E0E6F8;
+  --text-secondary: #CDD6F0;
+  --text-muted: #B8C5E8;
+  --text-subtle: #94A3C4;
+  --text-accent: #7B61FF;
+  
+  /* Space Glow Effects */
+  --glow-nebula: 0 0 20px rgba(123, 97, 255, 0.4), 0 0 40px rgba(123, 97, 255, 0.2);
+  --glow-nebula-soft: 0 0 15px rgba(123, 97, 255, 0.3), 0 0 30px rgba(123, 97, 255, 0.1);
+  --glow-star: 0 0 20px rgba(224, 230, 248, 0.5), 0 0 40px rgba(224, 230, 248, 0.2);
+  --glow-star-soft: 0 0 12px rgba(224, 230, 248, 0.3), 0 0 24px rgba(224, 230, 248, 0.1);
+  --glow-cosmic: 0 0 25px rgba(107, 159, 255, 0.4), 0 0 50px rgba(107, 159, 255, 0.2);
+  
+  /* Refined Shadows */
+  --shadow-sm: 0 2px 8px rgba(10, 13, 46, 0.4);
+  --shadow-md: 0 4px 16px rgba(10, 13, 46, 0.5);
+  --shadow-lg: 0 8px 32px rgba(10, 13, 46, 0.6);
+  --shadow-xl: 0 16px 48px rgba(10, 13, 46, 0.7);
+  
+  /* Border Colors */
+  --border-subtle: #1A2050;
+  --border-medium: #242B5C;
+  --border-cosmic: #2E3668;
+}
+
+/* ========================================
+   BASE STYLES & SPACE TYPOGRAPHY
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--space-blue-deep);
+}
+
+body {
+  font-family: 'Nunito', 'Inter', sans-serif;
+  background: var(--space-blue-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-space-primary {
+  font-family: 'Raleway', sans-serif;
+}
+
+.font-space-secondary {
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-space-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ========================================
+   SPACE DESIGN SYSTEM
+======================================== */
+
+/* Layout Spacing */
+.space-section-padding {
+  padding: 4rem 1rem;
+}
+
+.space-content-padding {
+  padding: 2rem;
+}
+
+.space-card-padding {
+  padding: 2rem;
+}
+
+/* Space Surface Styles */
+.space-surface-dark {
+  background: var(--space-blue-deep);
+  border: 1px solid var(--border-subtle);
+}
+
+.space-surface-elevated {
+  background: var(--space-blue-medium);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.space-surface-floating {
+  background: var(--space-blue-light);
+  border: 1px solid var(--border-cosmic);
+  box-shadow: var(--shadow-md);
+}
+
+.space-card {
+  background: var(--space-blue-surface);
+  border: 1px solid var(--nebula-purple);
+  border-radius: 24px;
+  box-shadow: var(--glow-nebula-soft);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.space-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(123, 97, 255, 0.1), transparent);
+  animation: space-shimmer 6s infinite;
+}
+
+.space-card-elevated {
+  background: var(--space-blue-light);
+  border: 1px solid var(--nebula-purple-light);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.space-card-floating {
+  background: var(--space-blue-surface);
+  border: 1px solid var(--starry-white);
+  border-radius: 32px;
+  box-shadow: var(--glow-star-soft);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Space Hover Effects */
+.space-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--nebula-purple-light);
+}
+
+.space-hover-glow:hover {
+  box-shadow: var(--glow-nebula);
+  border-color: var(--nebula-purple-light);
+}
+
+/* Space Typography Hierarchy */
+.space-display {
+  font-family: 'Raleway', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.space-title-xl {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.space-title-lg {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.space-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.space-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.space-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.space-body-sm {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.space-caption {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ========================================
+   SPACE BUTTONS & INTERACTIONS
+======================================== */
+
+.space-btn-primary {
+  background: linear-gradient(135deg, var(--nebula-purple), var(--nebula-purple-light));
+  color: var(--text-primary);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  padding: 1.2rem 3rem;
+  border-radius: 16px;
+  border: 1px solid var(--nebula-purple-light);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--glow-nebula-soft);
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.space-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(224, 230, 248, 0.2), transparent);
+  animation: space-shimmer 4s infinite;
+}
+
+.space-btn-primary:hover {
+  background: linear-gradient(135deg, var(--nebula-purple-light), var(--starry-white));
+  box-shadow: var(--glow-star);
+  transform: translateY(-3px);
+  border-color: var(--starry-white);
+  color: var(--space-blue-deep);
+}
+
+.space-btn-secondary {
+  background: transparent;
+  color: var(--nebula-purple-light);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  padding: 1.2rem 3rem;
+  border-radius: 16px;
+  border: 1px solid var(--nebula-purple);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  font-size: 1rem;
+}
+
+.space-btn-secondary:hover {
+  background: rgba(123, 97, 255, 0.15);
+  box-shadow: var(--glow-nebula-soft);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+  border-color: var(--nebula-purple-light);
+}
+
+.space-btn-accent {
+  background: linear-gradient(135deg, var(--starry-white), var(--starry-white-bright));
+  color: var(--space-blue-deep);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  padding: 1.2rem 3rem;
+  border-radius: 16px;
+  border: 1px solid var(--starry-white-bright);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--glow-star-soft);
+  font-size: 1rem;
+}
+
+.space-btn-accent:hover {
+  background: linear-gradient(135deg, var(--starry-white-bright), var(--starry-white));
+  box-shadow: var(--glow-star);
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   SPACE INPUT ELEMENTS
+======================================== */
+
+.space-input {
+  background: var(--space-blue-medium);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  padding: 1.2rem;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.space-input:focus {
+  outline: none;
+  border-color: var(--nebula-purple);
+  box-shadow: var(--glow-nebula-soft);
+  background: var(--space-blue-light);
+}
+
+.space-input::placeholder {
+  color: var(--text-subtle);
+}
+
+/* ========================================
+   SPACE ANIMATIONS & KEYFRAMES
+======================================== */
+
+@keyframes space-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes space-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes space-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes space-glow-cycle {
+  0%, 100% {
+    box-shadow: var(--glow-nebula-soft);
+    border-color: var(--nebula-purple);
+  }
+  50% {
+    box-shadow: var(--glow-star-soft);
+    border-color: var(--starry-white);
+  }
+}
+
+@keyframes space-orbit {
+  0% {
+    transform: rotate(0deg) translateX(30px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+
+@keyframes space-parallax {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes space-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Animation Classes */
+.space-pulse {
+  animation: space-pulse 4s ease-in-out infinite;
+}
+
+.space-float {
+  animation: space-float 8s ease-in-out infinite;
+}
+
+.space-glow-cycle {
+  animation: space-glow-cycle 6s ease-in-out infinite;
+}
+
+.space-orbit {
+  animation: space-orbit 20s linear infinite;
+}
+
+.space-twinkle {
+  animation: space-twinkle 3s ease-in-out infinite;
+}
+
+.space-smooth-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   SPACE PROGRESS & LOADING ELEMENTS
+======================================== */
+
+.space-progress-container {
+  background: var(--space-blue-medium);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  overflow: hidden;
+  height: 10px;
+  position: relative;
+  box-shadow: inset 0 2px 6px rgba(10, 13, 46, 0.4);
+}
+
+.space-progress-fill {
+  background: linear-gradient(90deg, var(--nebula-purple), var(--starry-white));
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: var(--glow-nebula-soft);
+}
+
+.space-loading-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--border-medium);
+  border-top: 3px solid var(--nebula-purple);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  box-shadow: var(--glow-nebula-soft);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   SPACE TABLE & DATA VISUALIZATION
+======================================== */
+
+.space-table {
+  width: 100%;
+  background: var(--space-blue-medium);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.space-table thead {
+  background: var(--space-blue-light);
+  border-bottom: 1px solid var(--nebula-purple);
+}
+
+.space-table th {
+  padding: 1.5rem 2rem;
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--starry-white);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.space-table td {
+  padding: 1.2rem 2rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+}
+
+.space-table tbody tr:hover {
+  background: var(--space-blue-light);
+  box-shadow: inset 0 0 0 1px var(--nebula-purple-light);
+}
+
+.space-table tbody tr:hover td {
+  color: var(--text-primary);
+}
+
+/* ========================================
+   SPACE BADGES & STATUS INDICATORS
+======================================== */
+
+.space-badge {
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.space-badge-primary {
+  background: linear-gradient(135deg, var(--nebula-purple), var(--nebula-purple-light));
+  color: var(--text-primary);
+  border-color: var(--nebula-purple-light);
+  box-shadow: var(--glow-nebula-soft);
+}
+
+.space-badge-accent {
+  background: linear-gradient(135deg, var(--starry-white), var(--starry-white-bright));
+  color: var(--space-blue-deep);
+  border-color: var(--starry-white-bright);
+  box-shadow: var(--glow-star-soft);
+}
+
+.space-badge-success {
+  background: linear-gradient(135deg, var(--cosmic-teal), #7DD3C0);
+  color: var(--text-primary);
+  border-color: var(--cosmic-teal);
+}
+
+.space-badge-info {
+  background: linear-gradient(135deg, var(--cosmic-azure), #85B3FF);
+  color: var(--text-primary);
+  border-color: var(--cosmic-azure);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+  .space-section-padding {
+    padding: 2.5rem 1rem;
+  }
+  
+  .space-content-padding {
+    padding: 1.5rem;
+  }
+  
+  .space-card-padding {
+    padding: 1.5rem;
+  }
+  
+  .space-display {
+    font-size: 3rem;
+  }
+  
+  .space-title-xl {
+    font-size: 2.2rem;
+  }
+  
+  .space-title-lg {
+    font-size: 1.9rem;
+  }
+}
+
+/* ========================================
+   SPACE UTILITY CLASSES
+======================================== */
+
+.space-text-gradient-nebula {
+  background: linear-gradient(135deg, var(--nebula-purple), var(--nebula-purple-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.space-text-gradient-star {
+  background: linear-gradient(135deg, var(--starry-white), var(--starry-white-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.space-text-gradient-cosmic {
+  background: linear-gradient(135deg, var(--cosmic-azure), var(--cosmic-violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.space-border-glow {
+  border-color: var(--nebula-purple);
+  box-shadow: var(--glow-nebula-soft);
+}
+
+.space-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.space-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Space selection colors */
+::selection {
+  background: rgba(123, 97, 255, 0.4);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background: rgba(123, 97, 255, 0.4);
+  color: var(--text-primary);
+}
+
+/* Space icon containers */
+.space-icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--space-blue-light);
+  border: 1px solid var(--border-medium);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.space-icon-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-nebula-soft);
+  border-color: var(--nebula-purple);
+}
+
+.space-icon-container-primary {
+  background: linear-gradient(135deg, var(--nebula-purple), var(--nebula-purple-light));
+  color: var(--text-primary);
+  border-color: var(--nebula-purple-light);
+  box-shadow: var(--glow-nebula-soft);
+}
+
+.space-icon-container-accent {
+  background: linear-gradient(135deg, var(--starry-white), var(--starry-white-bright));
+  color: var(--space-blue-deep);
+  border-color: var(--starry-white-bright);
+  box-shadow: var(--glow-star-soft);
+}
+
+.space-icon-container-success {
+  background: linear-gradient(135deg, var(--cosmic-teal), #7DD3C0);
+  color: var(--text-primary);
+  border-color: var(--cosmic-teal);
+}
+
+.space-icon-container-info {
+  background: linear-gradient(135deg, var(--cosmic-azure), #85B3FF);
+  color: var(--text-primary);
+  border-color: var(--cosmic-azure);
+}
+
+/* Space separators and dividers */
+.space-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+  border: none;
+}
+
+.space-divider-glow {
+  height: 2px;
+  background: linear-gradient(90deg, var(--nebula-purple), var(--starry-white));
+  border: none;
+  border-radius: 2px;
+  box-shadow: var(--glow-nebula-soft);
+}
+
+/* Space grid layouts */
+.space-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+}
+
+.space-grid-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Space background patterns */
+.space-bg-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.space-bg-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(123, 97, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(224, 230, 248, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 10%, rgba(107, 159, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(123, 97, 255, 0.06) 0%, transparent 50%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Space starfield background */
+.space-starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.space-starfield::before,
+.space-starfield::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--starry-white);
+  border-radius: 50%;
+  animation: space-twinkle 4s ease-in-out infinite;
+}
+
+.space-starfield::before {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.space-starfield::after {
+  top: 70%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+/* Space floating elements */
+.space-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.space-floating-elements::before,
+.space-floating-elements::after {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 1px solid var(--nebula-purple);
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.space-floating-elements::before {
+  top: 20%;
+  left: 10%;
+  animation: space-float 12s ease-in-out infinite;
+}
+
+.space-floating-elements::after {
+  top: 60%;
+  right: 15%;
+  animation: space-float 16s ease-in-out infinite reverse;
+  border-color: var(--starry-white);
+}
+
+/* Space exploration effects */
+.space-exploration {
+  position: relative;
+  background: linear-gradient(45deg, var(--nebula-purple), var(--starry-white), var(--cosmic-azure), var(--nebula-purple));
+  background-size: 400% 400%;
+  animation: space-parallax 8s ease-in-out infinite;
+}
